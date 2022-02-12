@@ -7,6 +7,8 @@ import MapViewDirections from 'react-native-maps-directions';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import FooterMap from '../components/Footer';
+import RequestPat from '../components/RequestPat';
+import WaitingPat1 from '../components/WaitingPat1';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyB0QhWbi7LfDb8ays7cmdJ5XT3dwTU8jFw';
 
@@ -21,6 +23,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <FooterMap></FooterMap>
+        <RequestPat></RequestPat>
         <View style={styles.rectangle}>
           <View style={styles.head}>
             <Text style={styles.header}>Current Location</Text>
@@ -66,7 +69,7 @@ export default class App extends React.Component {
           showsUserLocation={true}
           provider={PROVIDER_GOOGLE}
           customMapStyle={mapStyle}
-          style={{ height: '95%', width: '100%', bottom: '8.2%' }}
+          style={{ height: '95%', width: '100%', bottom: '11%' }}
           region={{
             latitude: 37.78825,
             longitude: -122.4324,
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
     marginTop: '3%',
     fontSize: 15,
     fontWeight: 'normal',
-    color: '#C4C4C4',
+    color: '#3C3C3C',
     backgroundColor: '#F3F3F3',
     height: 30,
     width: 280,
