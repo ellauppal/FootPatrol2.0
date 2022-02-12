@@ -8,7 +8,7 @@ import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNat
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyB0QhWbi7LfDb8ays7cmdJ5XT3dwTU8jFw';
 
-export default function PatrolToStart(props) {
+export default function PatrolDuringWalk(props) {
   const [dropoff, setDropoff] = useState('');
   const [pickup, setPickup] = useState('');
 
