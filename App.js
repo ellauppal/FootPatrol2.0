@@ -1,112 +1,71 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import * as React from 'react';
+import { Text, View, StyleSheet, Image, Divider, TouchableOpacity } from 'react-native';
+import Constants from 'expo-constants';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+export default function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
+    <View style={styles.container}>
+      <Text style={styles.paragraph}>
+        Select Your University
       </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+      <TouchableOpacity activeOpacity={0.5}>
+        <Image
+        source={require('./images/UOttawa.png')}
+        style={styles.ImageIconStyle}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.5}>
+        <Image
+        source={require('./images/UToronto.png')}
+        style={styles.ImageIconStyle}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.5}>
+        <Image
+        source={require('./images/Waterloo.png')}
+        style={styles.ImageIconStyle}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.5}>
+        <Image
+        source={require('./images/Western.png')}
+        style={styles.ImageIconStyle}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.5}>
+        <Image
+        source={require('./images/Queens.png')}
+        style={styles.ImageIconStyle}
+        />
+      </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.5}>
+        <Image
+        source={require('./images/YorkU.png')}
+        style={styles.ImageIconStyle}
+        />
+      </TouchableOpacity>
     </View>
   );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: 'white',
+    padding: 8,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
+  paragraph: {
+    margin: 24,
     fontSize: 18,
-    fontWeight: '400',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#3C3C3C'
   },
-  highlight: {
-    fontWeight: '700',
-  },
+  ImageIconStyle: {
+    flex: 1,
+    width: '100%',
+    height: 75,
+    resizeMode: 'contain'
+  }
 });
-
-export default App;
