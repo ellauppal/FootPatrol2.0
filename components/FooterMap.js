@@ -34,10 +34,8 @@ export default function FooterMap() {
 
 const styles = StyleSheet.create ({
     container: {
-      position: 'absolute',
       justifyContent:'center',
       alignItems: 'center',
-      top: SCREEN_HEIGHT - 100,
       flexDirection: 'row',
       width: SCREEN_WIDTH,
       height: 100,
