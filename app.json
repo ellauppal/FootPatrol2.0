@@ -22,7 +22,9 @@
     },
     "android": {
       "config": {
-        "googleMapsApiKey": "AIzaSyCGXits2_TUG85g_Wn1yu1Y3t-T9-kHEKw"
+        "googleMaps": {
+          "apiKey": "AIzaSyCGXits2_TUG85g_Wn1yu1Y3t-T9-kHEKw"
+        }
       },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
