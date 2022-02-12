@@ -26,8 +26,8 @@ export default function PatrolToStart(props) {
           <Text style={styles.text}>{props.firstName} {props.lastName}</Text>
         </View>
         <View style={{justifyContent: 'center'}}>
-          <Text style={styles.text}>You are</Text>
-          <Text style={styles.number}>{props.minutesAway}</Text>
+          <Text style={styles.text}>Destination is</Text>
+          <Text style={styles.number}>{props.minutesFromDestination}</Text>
           <Text style={styles.text}>minutes away</Text>
         </View>
       </View>
