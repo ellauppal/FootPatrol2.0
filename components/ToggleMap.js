@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     alignSelf: 'center',
+    shadowRadius: 8,
+    shadowOpacity: 0.25,
   },
   toggle: {
     flexDirection: 'row',

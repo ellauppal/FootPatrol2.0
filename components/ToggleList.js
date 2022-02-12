@@ -20,9 +20,11 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: "center",
     borderRadius: 33,
-    position: 'absolute',
-    top: 40,
+    marginTop: 40,
     alignSelf: 'center',
+    shadowRadius: 8,
+    shadowOpacity: 0.25,
+    marginBottom: 20,
   },
   toggle: {
     flexDirection: 'row',
