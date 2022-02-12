@@ -1,4 +1,4 @@
-import { Dimensions, Image, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { useState } from 'react';
 import MapView from 'react-native-maps';
 import { PROVIDER_GOOGLE } from 'react-native-maps';
@@ -8,7 +8,7 @@ import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNat
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyB0QhWbi7LfDb8ays7cmdJ5XT3dwTU8jFw';
 
-export default function PatrolToStart(props) {
+export default function PatrolComplete() {
   const [dropoff, setDropoff] = useState('');
   const [pickup, setPickup] = useState('');
 
@@ -20,15 +20,11 @@ export default function PatrolToStart(props) {
         </TouchableWithoutFeedback>
       </View>
       <View style={styles.card}>
-        <View style={{justifyContent: 'center'}}>
-          <Text style={styles.text}>Patrollee</Text>
-          <Image source={props.patrolleeImage} style={styles.image} />
-          <Text style={styles.text}>{props.firstName} {props.lastName}</Text>
-        </View>
-        <View style={{justifyContent: 'center'}}>
-          <Text style={styles.text}>Destination is</Text>
-          <Text style={styles.number}>{props.minutesFromDestination}</Text>
-          <Text style={styles.text}>minutes away</Text>
+        <Text style={styles.text}>Patrol Complete</Text>
+        <View style={styles.button}>
+          <TouchableWithoutFeedback onPress={() => console.log()}>
+            <Text style={styles.buttonText}>Finish</Text>
+          </TouchableWithoutFeedback>
         </View>
       </View>
       <MapView
@@ -88,25 +84,27 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     alignSelf: 'center',
     borderRadius: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'center',
+    alignContent: 'center'
   },
   text: {
     color: "#3C3C3C",
-    fontSize: 16,
+    fontSize: 24,
     textAlign: 'center'
   },
-  number: {
-    color: '#7C63E3',
-    fontWeight: '500',
-    fontSize: 48,
-    textAlign: 'center'
-  },
-  image: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+  button: {
+    marginTop: 10,
+    width: 170,
+    height: 33,
+    backgroundColor: '#19BE72',
+    borderRadius: 33,
     alignSelf: 'center'
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    marginTop: 5,
+    fontSize: 18,
   }
 });
 
