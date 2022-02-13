@@ -8,7 +8,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <PatrolToStart firstName="Victoria" lastName="Da Rosa" minutesAway="10" patrolleeImage={JaneDoeImage} />
+      <PatrolToStart firstName="Jane" lastName="Doe" minutesAway="10" patrolleeImage={JaneDoeImage} />
       <FooterMap />
     </View>
   );
