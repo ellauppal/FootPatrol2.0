@@ -17,21 +17,40 @@ export default function HomeScreen() {
       console.log(error);
     }
   };
-  return (
-    <View style={styles.container}>
-      <StatusBar style='dark-content' />
-      <View style={styles.row}>
-        <Text style={styles.title}>Welcome {user.email}!</Text>
-        <IconButton
-          name='logout'
-          size={24}
-          color='#fff'
-          onPress={handleSignOut}
-        />
+
+  if(user.uid == 'Eo9i6NlXrDY54SZ48Kb6TlXPKxG3'){
+    return (
+      <View style={styles.container}>
+        <StatusBar style='dark-content' />
+        <View style={styles.row}>
+          <Text style={styles.title}>Welcome admin {user.email}!</Text>
+          <IconButton
+            name='logout'
+            size={24}
+            color='#fff'
+            onPress={handleSignOut}
+          />
+        </View>
+        <Text style={styles.text}>Your UID is: {user.uid} </Text>
       </View>
-      <Text style={styles.text}>Your UID is: {user.uid} </Text>
-    </View>
-  );
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <StatusBar style='dark-content' />
+        <View style={styles.row}>
+          <Text style={styles.title}>Welcome user {user.email}!</Text>
+          <IconButton
+            name='logout'
+            size={24}
+            color='#fff'
+            onPress={handleSignOut}
+          />
+        </View>
+        <Text style={styles.text}>Your UID is: {user.uid} </Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
