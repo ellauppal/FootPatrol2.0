@@ -8,7 +8,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Profile firstName="Jane" lastName="Doe" image={JaneDoeImage} />
+      <Profile firstName="Jane" lastName="Doe" image={JaneDoeImage} institution="University of Waterloo" />
       <FooterProfile />
     </View>
   );
