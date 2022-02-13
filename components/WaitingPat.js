@@ -1,4 +1,4 @@
-//Destination Reached
+//Wait for patrol to accept request
 
 import { StyleSheet, Text, View, TextInput, ScrollView, Button} from 'react-native';
 import React, {useState} from 'react';
@@ -13,7 +13,7 @@ const {
   const scale_h1=SCREEN_HEIGHT/8
   const scale_t1=SCREEN_HEIGHT/4.5 + (60)
 
-export default function ReachDest() {
+export default function WaitingPat1() {
   return (
 
       <View style={styles.container}>
@@ -24,11 +24,11 @@ export default function ReachDest() {
             borderRadius: 25, borderColor: 'black', borderWidth: 1,
             
         }} >
-            <Text style={styles.text}>Destination reached!</Text>
+            <Text style={styles.text}>Waiting for patrol to accept request...</Text>
             
             <View style={styles.container1}>
                 <Button  
-                    title='End Journey' 
+                    title='Cancel Request' 
                     color='#fff'
                     style={styles.text} 
                     />
@@ -43,20 +43,27 @@ export default function ReachDest() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    zIndex: 3,
+    top: '40%',
 
   },
   container1: {
     height: 40,
     width: 175,
     borderRadius: 25,
-    backgroundColor: '#19BE72'
+    backgroundColor: '#E9534A'
   },
   text: {
     color: '#3C3C3C',
-    fontSize: 23,
+    fontSize: 18,
     margin: 10
   },
+  text1: {
+    color: '#7C63E3',
+    fontSize: 48,
+    fontWeight: 'bold'
+    
+  }
 });

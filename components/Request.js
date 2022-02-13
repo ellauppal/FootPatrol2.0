@@ -1,49 +1,21 @@
 //Create request for patroll
 
 import { StyleSheet, Text, View, TextInput, ScrollView, Button} from 'react-native';
-import React, { useState, setState, Component} from 'react';
+import React, {useState} from 'react';
 import { Dimensions } from 'react-native';
-import WaitingPat1 from './WaitingPat1';
-import { setStatusBarHidden } from 'expo-status-bar';
 
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
   } = Dimensions.get('window');
-
+  
   const scale_w1= SCREEN_WIDTH/1.8
   const scale_h1=SCREEN_HEIGHT/3.2
   const scale_t1=SCREEN_HEIGHT/4.5
 
-  this.setState({showTheThing: true}) // show
-  this.setState({showTheThing: false}) // hide
-  
-
-  export default class RequestPat extends React.Component {
-    constructor(){
-      super();
-      this.state ={
-  
-        showTheThing:true
-      }
-      this.handleClick=this.handleClick.bind(this);
-    }
-
-    handleClick() {
-      this.setState({showTheThing: false})
-    }
-
-  render() {
+export default function RequestPat() {
   return (
-    
-    <View style={styles.display} name='hide'>
-    {
-      this.state.showTheThing ? 
       <View style={styles.container}>
-        {}
-        {shouldShow ? (
-          <WaitingPat1></WaitingPat1>
-        ) : null}
         <View style={{
             alignItems: 'center', justifyContent:'center', top: scale_t1,
             width: scale_w1, height: scale_w1, backgroundColor: "white",
@@ -56,8 +28,7 @@ const {
             <Text style={styles.text}>minutes away</Text>
             
             <View style={styles.container1}>
-                <Button             
-                    onPress={this.handleClick}
+                <Button  
                     title='Request' 
                     color='#fff'
                     style={styles.text} 
@@ -65,24 +36,18 @@ const {
             </View>
         </View>
       </View>
-      : null
-    }
-    </View>
   );
 }
-}
+
 
 
 const styles = StyleSheet.create({
-  display:{
-    display: 'none'
-  },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 3,
-    top: '45%'
+    top: '45%',
 
   },
   container1: {

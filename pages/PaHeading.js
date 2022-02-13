@@ -1,74 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { useState } from 'react';
 import MapView from 'react-native-maps';
 import { PROVIDER_GOOGLE } from 'react-native-maps';
-import React from 'react';
 import MapViewDirections from 'react-native-maps-directions';
 import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import FooterMap from '../components/Footer';
-import RequestPat from '../components/Request';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyB0QhWbi7LfDb8ays7cmdJ5XT3dwTU8jFw';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { dropoff: '' };
-    this.state = { pickup: '' };
-  }
+export default function PatrolDuringWalk(props) {
+  const [dropoff, setDropoff] = useState('');
+  const [pickup, setPickup] = useState('');
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <RequestPat></RequestPat>
+  return (
+    <View style={styles.patrolToStart}>
         <FooterMap></FooterMap>
-        <View style={styles.rectangle}>
-          <View style={styles.head}>
-            <Text style={styles.header}>Current Location</Text>
-            <Text style={styles.subHeader}>106 Seagram Dr, Waterloo ON</Text>
-          </View>
-          <View style={styles.below}>
-            <View style={styles.inLine}>
-              <MaterialIcons
-                style={styles.icon}
-                name='dropoff'
-                name='my-location'
-                size={24}
-                color='#878181'
-              />
-              <TextInput
-                style={styles.input}
-                placeholder='  Enter your pick-up point'
-                name='pickup'
-                {...this.props}
-                value={this.state.pickup}
-                onChangeText={pickup => this.setState({ pickup })}
-              />
-            </View>
-            <View style={styles.inLine}>
-              <Ionicons
-                style={styles.icon}
-                name='location-sharp'
-                size={24}
-                color='#878181'
-              />
-              <TextInput
-                {...this.props}
-                style={styles.input}
-                placeholder='  Enter your drop-off point'
-                value={this.state.dropoff}
-                onChangeText={dropoff => this.setState({ dropoff })}
-              />
-            </View>
-          </View>
+        <View style={styles.circle}>
+        <TouchableWithoutFeedback onPress={() => console.log()}>
+          <MaterialIcons name="call" size={38} color="#E9534A" style={styles.icon} />
+        </TouchableWithoutFeedback>
+      </View>
+      <View style={styles.card}>
+        <View style={{justifyContent: 'center'}}>
+          <Text style={styles.text}>Patrollee</Text>
+          <Image source={props.patrolleeImage} style={styles.image} />
+          <Text style={styles.text}>{props.firstName} {props.lastName}</Text>
         </View>
-        <MapView
+        <View style={{justifyContent: 'center'}}>
+          <Text style={styles.text}>Destination is</Text>
+          <Text style={styles.number}>{props.minutesFromDestination}</Text>
+          <Text style={styles.text}>minutes away</Text>
+        </View>
+      </View>
+      <MapView
           showsMyLocationButton={true}
           showsUserLocation={true}
           provider={PROVIDER_GOOGLE}
           customMapStyle={mapStyle}
-          style={{ height: '95%', width: '100%', bottom: '11%' }}
+          style={{ height: '100%', width: '100%'}}
           region={{
             latitude: 37.78825,
             longitude: -122.4324,
@@ -77,74 +47,69 @@ export default class App extends React.Component {
           }}
         >
           <MapViewDirections
-            origin={this.state.pickup}
-            destination={this.state.dropoff}
+            origin={pickup}
+            destination={dropoff}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={3}
             strokeColor='#7C63E3'
           />
         </MapView>
-        <StatusBar style='auto' />
-      </View>
-    );
-  }
+    </View>
+  )
 }
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
+  patrolToStart: {
+    height: Dimensions.get('window').height - 100,
   },
-  rectangle: {
-    height: 148,
-    width: 370,
-    borderRadius: 25,
-    borderColor: '#7C63E3',
-    borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    backgroundColor: '#fff',
+  circle: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     position: 'absolute',
-    zIndex: 10,
-    top: '7%',
-  },
-  header: {
-    fontWeight: '600',
-  },
-  subHeader: {
-    fontWeight: 'normal',
-  },
-  input: {
-    marginTop: '3%',
-    fontSize: 15,
-    fontWeight: 'normal',
-    color: '#3C3C3C',
-    backgroundColor: '#F3F3F3',
-    height: 30,
-    width: 280,
-  },
-  head: {
-    alignItems: 'center',
-    fontSize: 13,
-    fontFamily: 'Open Sans',
-    color: '#3C3C3C',
-    top: '10%',
-  },
-  below: {
-    alignItems: 'center',
-    top: '13%',
-  },
-  inLine: {
-    flexDirection: 'row',
+    top: 40,
+    left: Dimensions.get('window').width - 94,
+    zIndex: 1,
+    backgroundColor: 'white',
+    shadowRadius: 8,
+    shadowOpacity: 0.1,
   },
   icon: {
-    top: '3%',
-    marginRight: '3%',
+    position: 'relative',
+    top: 13,
+    left: 13,
   },
+  card: {
+    width: 348,
+    height: 135,
+    position: 'absolute',
+    bottom: '10%',
+    zIndex: 1,
+    backgroundColor: 'white',
+    shadowRadius: 8,
+    shadowOpacity: 0.1,
+    alignSelf: 'center',
+    borderRadius: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  text: {
+    color: "#3C3C3C",
+    fontSize: 16,
+    textAlign: 'center'
+  },
+  number: {
+    color: '#7C63E3',
+    fontWeight: '500',
+    fontSize: 48,
+    textAlign: 'center'
+  },
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    alignSelf: 'center'
+  }
 });
 
 const mapStyle = [

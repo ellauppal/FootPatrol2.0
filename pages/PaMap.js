@@ -4,10 +4,8 @@ import MapView from 'react-native-maps';
 import { PROVIDER_GOOGLE } from 'react-native-maps';
 import React from 'react';
 import MapViewDirections from 'react-native-maps-directions';
-import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import ToggleMap from '../components/ToggleMap';
 import FooterMap from '../components/Footer';
-import RequestPat from '../components/Request';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyB0QhWbi7LfDb8ays7cmdJ5XT3dwTU8jFw';
 
@@ -21,54 +19,14 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <RequestPat></RequestPat>
+        <ToggleMap></ToggleMap>
         <FooterMap></FooterMap>
-        <View style={styles.rectangle}>
-          <View style={styles.head}>
-            <Text style={styles.header}>Current Location</Text>
-            <Text style={styles.subHeader}>106 Seagram Dr, Waterloo ON</Text>
-          </View>
-          <View style={styles.below}>
-            <View style={styles.inLine}>
-              <MaterialIcons
-                style={styles.icon}
-                name='dropoff'
-                name='my-location'
-                size={24}
-                color='#878181'
-              />
-              <TextInput
-                style={styles.input}
-                placeholder='  Enter your pick-up point'
-                name='pickup'
-                {...this.props}
-                value={this.state.pickup}
-                onChangeText={pickup => this.setState({ pickup })}
-              />
-            </View>
-            <View style={styles.inLine}>
-              <Ionicons
-                style={styles.icon}
-                name='location-sharp'
-                size={24}
-                color='#878181'
-              />
-              <TextInput
-                {...this.props}
-                style={styles.input}
-                placeholder='  Enter your drop-off point'
-                value={this.state.dropoff}
-                onChangeText={dropoff => this.setState({ dropoff })}
-              />
-            </View>
-          </View>
-        </View>
         <MapView
           showsMyLocationButton={true}
           showsUserLocation={true}
           provider={PROVIDER_GOOGLE}
           customMapStyle={mapStyle}
-          style={{ height: '95%', width: '100%', bottom: '11%' }}
+          style={{ height: '100%', width: '100%', bottom: '11%' }}
           region={{
             latitude: 37.78825,
             longitude: -122.4324,
