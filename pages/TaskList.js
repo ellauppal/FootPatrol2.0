@@ -48,28 +48,16 @@ const DATA = [
     journeyLengthMinutes: "17",
   },
   {
-    startingPoint: "106 Seagram Dr, Waterloo ON",
-    destination: "Waterloo Public Square Station",
-    minutesFromStart: "12",
-    journeyLengthMinutes: "17",
+    startingPoint: "165 University Ave W, Waterloo",
+    destination: "220 Columbia St W, Waterloo",
+    minutesFromStart: "5",
+    journeyLengthMinutes: "13",
   },
   {
-    startingPoint: "106 Seagram Dr, Waterloo ON",
-    destination: "Waterloo Public Square Station",
-    minutesFromStart: "12",
-    journeyLengthMinutes: "17",
-  },
-  {
-    startingPoint: "106 Seagram Dr, Waterloo ON",
-    destination: "Waterloo Public Square Station",
-    minutesFromStart: "12",
-    journeyLengthMinutes: "17",
-  },
-  {
-    startingPoint: "106 Seagram Dr, Waterloo ON",
-    destination: "Waterloo Public Square Station",
-    minutesFromStart: "12",
-    journeyLengthMinutes: "17",
+    startingPoint: "200 Ring Rd, Waterloo",
+    destination: "44 Bricker Ave, Waterloo",
+    minutesFromStart: "3",
+    journeyLengthMinutes: "19",
   },
 ]
 
