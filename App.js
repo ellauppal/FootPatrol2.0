@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Profile from './pages/Profile.js';
+import FooterProfile from './components/FooterProfile';
+import JaneDoeImage from './assets/JaneDoe.png';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      <Profile firstName="Jane" lastName="Doe" image={JaneDoeImage} />
+      <FooterProfile />
     </View>
   );
 }
@@ -14,7 +18,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
