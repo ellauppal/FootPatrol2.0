@@ -1,8 +1,7 @@
-//Arrow button at the top of Login and SignUp pages
-
 import React from 'react';
 import { StyleSheet, Text, View , TouchableOpacityComponent} from 'react-native';
 import { Dimensions } from 'react-native';
+
 import { AntDesign } from '@expo/vector-icons';
 import { Button } from 'react-native';
 

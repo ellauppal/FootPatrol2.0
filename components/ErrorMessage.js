@@ -8,7 +8,7 @@ const ErrorMessage = ({ error, visible }) => {
     return null;
   }
 
-  return <Text style={styles.errorText}>⚠️ {error}</Text>;
+  return <Text style={styles.errorText}>{error}</Text>;
 };
 
 const styles = StyleSheet.create({
