@@ -1,6 +1,6 @@
 # Foot Patrol 2.0
 
-Built at ElleHacks 2022.
+Built at ElleHacks 2022 https://devpost.com/software/foot-patrol
 
 ## 💡 Inspiration
 
